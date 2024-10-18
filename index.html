@@ -5,42 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio</title>
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Your Portfolio Title" />
-    <meta property="og:description" content="Roblox Scripter & Game Developer" />
-    <meta property="og:image" content="URL_to_your_image.jpg" />
-    <meta property="og:url" content="https://your-portfolio-url.com" />
-    <meta property="og:type" content="website" />
-
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'YOUR_GA_TRACKING_ID');
-    </script>
-
-    <!-- Algolia DocSearch -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3.0.0/dist/style.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3.0.0/dist/umd/algolia.docsearch.min.js"></script>
-    <script>
-        docsearch({
-            appId: 'YOUR_APP_ID',
-            apiKey: 'YOUR_SEARCH_API_KEY',
-            indexName: 'YOUR_INDEX_NAME',
-            inputSelector: '#search-input',
-            debug: false // Set to true if you want to see debug logs
-        });
-    </script>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
+            background: url('https://example.com/your-wallpaper.jpg') no-repeat center center fixed; /* Change to your wallpaper URL */
+            background-size: cover;
         }
         .hidden { display: none; }
         .animate-fadeIn { animation: fadeIn 0.5s; }
@@ -56,30 +28,20 @@
             perspective: 1000px;
         }
     </style>
-
-    <!-- Manifest for PWA -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#ffffff">
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-100 text-gray-900 bg-opacity-90">
     <!-- Main Wrapper -->
-    <div class="container mx-auto px-6 py-10">
+    <div class="container mx-auto px-6 py-10 bg-white rounded-lg shadow-lg opacity-95">
         <!-- Header -->
         <header class="mb-10 text-center">
-            <h1 class="text-4xl font-bold" id="intro-text"></h1>
-            <p class="mt-4 text-xl text-gray-600">Roblox Scripter & Game Developer</p>
-            <button id="theme-toggle" class="mt-4 bg-gray-800 text-white py-2 px-4 rounded">Toggle Dark Mode</button>
+            <h1 class="text-4xl font-bold text-blue-600" id="intro-text"></h1>
+            <p class="mt-4 text-xl text-gray-800">Roblox Scripter & Game Developer</p>
+            <button id="theme-toggle" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded transition transform hover:bg-blue-500 hover:scale-105">Toggle Dark Mode</button>
         </header>
-
-        <!-- Search Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6">Search</h2>
-            <input id="search-input" type="text" placeholder="Search..." class="border p-2 rounded w-full mb-4">
-        </section>
 
         <!-- Skills Section -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6">Skills</h2>
+            <h2 class="text-2xl font-bold mb-6 text-blue-600">Skills</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold">Roblox Lua</h3>
@@ -98,7 +60,7 @@
 
         <!-- Projects Section -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6">Projects</h2>
+            <h2 class="text-2xl font-bold mb-6 text-blue-600">Projects</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="project-card bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold">Shape-shifting Obby</h3>
@@ -120,9 +82,9 @@
 
         <!-- Contact Section -->
         <section class="text-center mb-12">
-            <h2 class="text-2xl font-bold mb-6">Contact Me</h2>
+            <h2 class="text-2xl font-bold mb-6 text-blue-600">Contact Me</h2>
             <p class="text-gray-600 mb-6">Feel free to reach out to discuss projects or collaborations!</p>
-            <button id="contact-button" class="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition">Get in Touch</button>
+            <button id="contact-button" class="bg-blue-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-500 transition">Get in Touch</button>
         </section>
 
         <!-- Contact Modal -->
@@ -133,7 +95,7 @@
                     <input type="text" placeholder="Your Name" class="border p-2 mb-4 w-full rounded">
                     <input type="email" placeholder="Your Email" class="border p-2 mb-4 w-full rounded">
                     <textarea placeholder="Message" class="border p-2 mb-4 w-full rounded"></textarea>
-                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">Send</button>
+                    <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500 transition">Send</button>
                 </form>
                 <button class="mt-4 text-red-500" id="close-modal">Close</button>
             </div>
@@ -165,18 +127,20 @@
             });
         }
 
-        // Modal for Contact
+        // Pop-up Contact Form
         const contactButton = document.getElementById('contact-button');
         const contactModal = document.getElementById('contact-modal');
-        const closeModalButton = document.getElementById('close-modal');
-
-        contactButton.addEventListener('click', () => {
-            contactModal.classList.remove('hidden');
-        });
-
-        closeModalButton.addEventListener('click', () => {
-            contactModal.classList.add('hidden');
-        });
+        const closeModal = document.getElementById('close-modal');
+        if (contactButton) {
+            contactButton.addEventListener('click', () => {
+                contactModal.classList.toggle('hidden');
+            });
+        }
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                contactModal.classList.add('hidden');
+            });
+        }
     </script>
 </body>
 </html>
