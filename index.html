@@ -12,6 +12,19 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        .hidden { display: none; }
+        .animate-fadeIn { animation: fadeIn 0.5s; }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .flipped {
+            transform: rotateY(180deg);
+            transition: transform 0.6s;
+        }
+        .project-card {
+            perspective: 1000px;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
@@ -19,8 +32,9 @@
     <div class="container mx-auto px-6 py-10">
         <!-- Header -->
         <header class="mb-10 text-center">
-            <h1 class="text-4xl font-bold">Your Name</h1>
+            <h1 class="text-4xl font-bold" id="intro-text"></h1>
             <p class="mt-4 text-xl text-gray-600">Roblox Scripter & Game Developer</p>
+            <button id="theme-toggle" class="mt-4 bg-gray-800 text-white py-2 px-4 rounded">Toggle Dark Mode</button>
         </header>
 
         <!-- Skills Section -->
@@ -46,17 +60,17 @@
         <section class="mb-12">
             <h2 class="text-2xl font-bold mb-6">Projects</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="project-card bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold">Shape-shifting Obby</h3>
                     <p class="mt-2 text-gray-600">An innovative Roblox obby game with shape-shifting mechanics.</p>
                     <a href="#" class="mt-4 block text-blue-500 hover:underline">View Project</a>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="project-card bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold">FPS Game</h3>
                     <p class="mt-2 text-gray-600">A fast-paced player vs player FPS built in Roblox.</p>
                     <a href="#" class="mt-4 block text-blue-500 hover:underline">View Project</a>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="project-card bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold">Roblox Utility Tools</h3>
                     <p class="mt-2 text-gray-600">A suite of scripting tools to enhance game development in Roblox Studio.</p>
                     <a href="#" class="mt-4 block text-blue-500 hover:underline">View Project</a>
@@ -68,13 +82,114 @@
         <section class="text-center mb-12">
             <h2 class="text-2xl font-bold mb-6">Contact Me</h2>
             <p class="text-gray-600 mb-6">Feel free to reach out to discuss projects or collaborations!</p>
-            <a href="mailto:youremail@example.com" class="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition">Get in Touch</a>
+            <button id="contact-button" class="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition">Get in Touch</button>
         </section>
+
+        <!-- Contact Modal -->
+        <div id="contact-modal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold mb-4">Contact Form</h3>
+                <form>
+                    <input type="text" placeholder="Your Name" class="border p-2 mb-4 w-full rounded">
+                    <input type="email" placeholder="Your Email" class="border p-2 mb-4 w-full rounded">
+                    <textarea placeholder="Message" class="border p-2 mb-4 w-full rounded"></textarea>
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">Send</button>
+                </form>
+                <button class="mt-4 text-red-500" id="close-modal">Close</button>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer class="text-center mt-10 text-gray-600">
             &copy; 2024 Your Name - All rights reserved.
         </footer>
     </div>
+
+    <!-- Combined JavaScript File -->
+    <script>
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dark/Light Mode Toggle
+        const toggleButton = document.getElementById('theme-toggle');
+        if (toggleButton) {
+            toggleButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+            });
+        }
+
+        // Dynamic Project Filter (You can expand this if you have more projects)
+        document.querySelectorAll('.filter-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                document.querySelectorAll('.project').forEach(project => {
+                    if (filter === 'all' || project.classList.contains(filter)) {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Interactive Typing Animation
+        const introText = "Roblox Scripter & Game Developer";
+        let introIndex = 0;
+        function type() {
+            const introElement = document.getElementById('intro-text');
+            if (introElement) {
+                introElement.textContent = introText.slice(0, introIndex);
+                introIndex++;
+                if (introIndex <= introText.length) {
+                    setTimeout(type, 100); // Adjust speed by changing 100
+                }
+            }
+        }
+        type();
+
+        // Scroll Animations
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.hidden-element');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+                if (position < screenHeight - 100) {
+                    element.classList.add('animate-fadeIn');
+                }
+            });
+        });
+
+        // Project Cards with Hover Effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.classList.add('flipped');
+            });
+            card.addEventListener('mouseout', () => {
+                card.classList.remove('flipped');
+            });
+        });
+
+        // Pop-up Contact Form
+        const contactButton = document.getElementById('contact-button');
+        const contactModal = document.getElementById('contact-modal');
+        const closeModal = document.getElementById('close-modal');
+        if (contactButton) {
+            contactButton.addEventListener('click', () => {
+                contactModal.classList.toggle('hidden');
+            });
+        }
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                contactModal.classList.add('hidden');
+            });
+        }
+    </script>
 </body>
 </html>
