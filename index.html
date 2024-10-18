@@ -44,19 +44,43 @@
         <section class="mb-12">
             <h2 class="text-2xl font-bold mb-6 text-blue-300">Skills</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Roblox Lua</h3>
-                    <p class="mt-2 text-gray-400">Extensive experience in scripting for Roblox games.</p>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md flex items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Luau_logo.png" alt="Luau" class="w-12 h-12 mr-3"> <!-- Luau icon -->
+                    <div>
+                        <h3 class="text-xl font-semibold">Luau</h3>
+                        <p class="mt-2 text-gray-400">3 years of experience in scripting for Roblox games.</p>
+                    </div>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">UI Design</h3>
-                    <p class="mt-2 text-gray-400">Creating functional and aesthetic user interfaces.</p>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md flex items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" class="w-12 h-12 mr-3"> <!-- Python icon -->
+                    <div>
+                        <h3 class="text-xl font-semibold">Python</h3>
+                        <p class="mt-2 text-gray-400">Skilled in scripting and automation.</p>
+                    </div>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Game Logic</h3>
-                    <p class="mt-2 text-gray-400">Developing complex in-game mechanics and systems.</p>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md flex items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Octicons-mark-github.svg" alt="CSS" class="w-12 h-12 mr-3"> <!-- CSS icon -->
+                    <div>
+                        <h3 class="text-xl font-semibold">CSS</h3>
+                        <p class="mt-2 text-gray-400">Experienced in creating styles for web applications.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md flex items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/HTML5_logo_and_wordmark.svg" alt="HTML" class="w-12 h-12 mr-3"> <!-- HTML icon -->
+                    <div>
+                        <h3 class="text-xl font-semibold">HTML</h3>
+                        <p class="mt-2 text-gray-400">Knowledgeable in building structured web pages.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md flex items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" class="w-12 h-12 mr-3"> <!-- JavaScript icon -->
+                    <div>
+                        <h3 class="text-xl font-semibold">JavaScript</h3>
+                        <p class="mt-2 text-gray-400">Proficient in enhancing interactivity in web applications.</p>
+                    </div>
                 </div>
             </div>
+            <p class="mt-4 text-gray-200 text-lg font-semibold">Completed <strong class="text-blue-400">24 commissions</strong>.</p>
         </section>
 
         <!-- Projects Section -->
@@ -85,227 +109,7 @@
         <section class="text-center mb-12">
             <h2 class="text-2xl font-bold mb-6 text-blue-300">Contact Me</h2>
             <p class="text-gray-400 mb-6">Feel free to reach out to discuss projects or collaborations!</p>
-            <a href="https://discord.gg/KakqWjr2" target="_blank" class="bg-blue-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-500 transition">Join My Discord</a>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center mt-10 text-gray-400">
-            &copy; 2024 Your Name - All rights reserved.
-        </footer>
-    </div>
-
-    <!-- Combined JavaScript File -->
-    <script>
-        // Smooth Scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfolio</title>
-    <!-- Favicon -->
-    <link rel="icon" href="https://raw.githubusercontent.com/doshibadev/doshibadev.github.io/refs/heads/main/images/favicon-32x32.png" type="image/png">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background: url('https://t3.ftcdn.net/jpg/05/92/20/76/360_F_592207649_AJyMC1uCl13xzQPnUSG8mQQkxhVgqf90.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
-        .hidden { display: none; }
-        .animate-fadeIn { animation: fadeIn 0.5s; }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .flipped {
-            transform: rotateY(180deg);
-            transition: transform 0.6s;
-        }
-        .project-card {
-            perspective: 1000px;
-        }
-    </style>
-</head>
-<body class="bg-gray-800 text-gray-100 dark">
-    <!-- Main Wrapper -->
-    <div class="container mx-auto px-6 py-10 bg-gray-900 rounded-lg shadow-lg opacity-95">
-        <!-- Header -->
-        <header class="mb-10 text-center">
-            <h1 class="text-4xl font-bold text-blue-300" id="intro-text"></h1>
-            <p class="mt-4 text-xl text-gray-200">Roblox Scripter & Game Developer</p>
-        </header>
-
-        <!-- Skills Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-blue-300">Skills</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Roblox Lua</h3>
-                    <p class="mt-2 text-gray-400">Extensive experience in scripting for Roblox games.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">UI Design</h3>
-                    <p class="mt-2 text-gray-400">Creating functional and aesthetic user interfaces.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Game Logic</h3>
-                    <p class="mt-2 text-gray-400">Developing complex in-game mechanics and systems.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-blue-300">Projects</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Shape-shifting Obby</h3>
-                    <p class="mt-2 text-gray-400">An innovative Roblox obby game with shape-shifting mechanics.</p>
-                    <a href="#" class="mt-4 block text-blue-500 hover:underline">View Project</a>
-                </div>
-                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">FPS Game</h3>
-                    <p class="mt-2 text-gray-400">A fast-paced player vs player FPS built in Roblox.</p>
-                    <a href="#" class="mt-4 block text-blue-500 hover:underline">View Project</a>
-                </div>
-                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Roblox Utility Tools</h3>
-                    <p class="mt-2 text-gray-400">A suite of scripting tools to enhance game development in Roblox Studio.</p>
-                    <a href="#" class="mt-4 block text-blue-500 hover:underline">View Project</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="text-center mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-blue-300">Contact Me</h2>
-            <p class="text-gray-400 mb-6">Feel free to reach out to discuss projects or collaborations!</p>
-            <a href="https://discord.gg/KakqWjr2" target="_blank" class="bg-blue-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-500 transition">Join My Discord</a>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center mt-10 text-gray-400">
-            &copy; 2024 Your Name - All rights reserved.
-        </footer>
-    </div>
-
-    <!-- Combined JavaScript File -->
-    <script>
-        // Smooth Scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfolio</title>
-    <!-- Favicon -->
-    <link rel="icon" href="https://raw.githubusercontent.com/doshibadev/doshibadev.github.io/refs/heads/main/images/favicon-32x32.png" type="image/png">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background: url('https://t3.ftcdn.net/jpg/05/92/20/76/360_F_592207649_AJyMC1uCl13xzQPnUSG8mQQkxhVgqf90.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
-        .hidden { display: none; }
-        .animate-fadeIn { animation: fadeIn 0.5s; }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .flipped {
-            transform: rotateY(180deg);
-            transition: transform 0.6s;
-        }
-        .project-card {
-            perspective: 1000px;
-        }
-    </style>
-</head>
-<body class="bg-gray-800 text-gray-100 dark">
-    <!-- Main Wrapper -->
-    <div class="container mx-auto px-6 py-10 bg-gray-900 rounded-lg shadow-lg opacity-95">
-        <!-- Header -->
-        <header class="mb-10 text-center">
-            <h1 class="text-4xl font-bold text-blue-300" id="intro-text"></h1>
-            <p class="mt-4 text-xl text-gray-200">Roblox Scripter & Game Developer</p>
-        </header>
-
-        <!-- Skills Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-blue-300">Skills</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Roblox Lua</h3>
-                    <p class="mt-2 text-gray-400">Extensive experience in scripting for Roblox games.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">UI Design</h3>
-                    <p class="mt-2 text-gray-400">Creating functional and aesthetic user interfaces.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Game Logic</h3>
-                    <p class="mt-2 text-gray-400">Developing complex in-game mechanics and systems.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-blue-300">Projects</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Shape-shifting Obby</h3>
-                    <p class="mt-2 text-gray-400">An innovative Roblox obby game with shape-shifting mechanics.</p>
-                    <a href="#" class="mt-4 block text-blue-500 hover:underline">View Project</a>
-                </div>
-                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">FPS Game</h3>
-                    <p class="mt-2 text-gray-400">A fast-paced player vs player FPS built in Roblox.</p>
-                    <a href="#" class="mt-4 block text-blue-500 hover:underline">View Project</a>
-                </div>
-                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Roblox Utility Tools</h3>
-                    <p class="mt-2 text-gray-400">A suite of scripting tools to enhance game development in Roblox Studio.</p>
-                    <a href="#" class="mt-4 block text-blue-500 hover:underline">View Project</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="text-center mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-blue-300">Contact Me</h2>
-            <p class="text-gray-400 mb-6">Feel free to reach out to discuss projects or collaborations!</p>
-            <a href="https://discord.gg/KakqWjr2" target="_blank" class="bg-blue-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-500 transition">Join My Discord</a>
+            <a href="https://discord.gg/KakqWjr2" class="bg-blue-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-500 transition">Join my Discord</a>
         </section>
 
         <!-- Footer -->
