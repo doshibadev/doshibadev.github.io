@@ -5,8 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio</title>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Your Portfolio Title" />
+    <meta property="og:description" content="Roblox Scripter & Game Developer" />
+    <meta property="og:image" content="URL_to_your_image.jpg" />
+    <meta property="og:url" content="https://your-portfolio-url.com" />
+    <meta property="og:type" content="website" />
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'YOUR_GA_TRACKING_ID');
+    </script>
+
+    <!-- Algolia DocSearch -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3.0.0/dist/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3.0.0/dist/umd/algolia.docsearch.min.js"></script>
+    <script>
+        docsearch({
+            appId: 'YOUR_APP_ID',
+            apiKey: 'YOUR_SEARCH_API_KEY',
+            indexName: 'YOUR_INDEX_NAME',
+            inputSelector: '#search-input',
+            debug: false // Set to true if you want to see debug logs
+        });
+    </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
         body {
@@ -26,6 +56,10 @@
             perspective: 1000px;
         }
     </style>
+
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body class="bg-gray-100 text-gray-900">
     <!-- Main Wrapper -->
@@ -36,6 +70,12 @@
             <p class="mt-4 text-xl text-gray-600">Roblox Scripter & Game Developer</p>
             <button id="theme-toggle" class="mt-4 bg-gray-800 text-white py-2 px-4 rounded">Toggle Dark Mode</button>
         </header>
+
+        <!-- Search Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">Search</h2>
+            <input id="search-input" type="text" placeholder="Search..." class="border p-2 rounded w-full mb-4">
+        </section>
 
         <!-- Skills Section -->
         <section class="mb-12">
@@ -125,71 +165,18 @@
             });
         }
 
-        // Dynamic Project Filter (You can expand this if you have more projects)
-        document.querySelectorAll('.filter-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.getAttribute('data-filter');
-                document.querySelectorAll('.project').forEach(project => {
-                    if (filter === 'all' || project.classList.contains(filter)) {
-                        project.style.display = 'block';
-                    } else {
-                        project.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Interactive Typing Animation
-        const introText = "Roblox Scripter & Game Developer";
-        let introIndex = 0;
-        function type() {
-            const introElement = document.getElementById('intro-text');
-            if (introElement) {
-                introElement.textContent = introText.slice(0, introIndex);
-                introIndex++;
-                if (introIndex <= introText.length) {
-                    setTimeout(type, 100); // Adjust speed by changing 100
-                }
-            }
-        }
-        type();
-
-        // Scroll Animations
-        window.addEventListener('scroll', () => {
-            const elements = document.querySelectorAll('.hidden-element');
-            elements.forEach(element => {
-                const position = element.getBoundingClientRect().top;
-                const screenHeight = window.innerHeight;
-                if (position < screenHeight - 100) {
-                    element.classList.add('animate-fadeIn');
-                }
-            });
-        });
-
-        // Project Cards with Hover Effects
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseover', () => {
-                card.classList.add('flipped');
-            });
-            card.addEventListener('mouseout', () => {
-                card.classList.remove('flipped');
-            });
-        });
-
-        // Pop-up Contact Form
+        // Modal for Contact
         const contactButton = document.getElementById('contact-button');
         const contactModal = document.getElementById('contact-modal');
-        const closeModal = document.getElementById('close-modal');
-        if (contactButton) {
-            contactButton.addEventListener('click', () => {
-                contactModal.classList.toggle('hidden');
-            });
-        }
-        if (closeModal) {
-            closeModal.addEventListener('click', () => {
-                contactModal.classList.add('hidden');
-            });
-        }
+        const closeModalButton = document.getElementById('close-modal');
+
+        contactButton.addEventListener('click', () => {
+            contactModal.classList.remove('hidden');
+        });
+
+        closeModalButton.addEventListener('click', () => {
+            contactModal.classList.add('hidden');
+        });
     </script>
 </body>
 </html>
